@@ -10,8 +10,6 @@ process.maxEvents = cms.untracked.PSet(
   input = cms.untracked.int32(-1)
 )
 
-
-#/cvmfs/cms.cern.ch/slc6_amd64_gcc530/cms/cmssw/CMSSW_8_0_20/src/CondCore/Utilities/plugins/EmptyIOVSource.cc
 process.source = cms.Source("EmptyIOVSource",
     timetype = cms.string('runnumber'),
     firstValue = cms.uint64(66394),
@@ -20,7 +18,7 @@ process.source = cms.Source("EmptyIOVSource",
 )
 
 
-#/cvmfs/cms.cern.ch/slc6_amd64_gcc530/cms/cmssw/CMSSW_8_0_20/src/CondCore/ESSources/plugins/CondDBESSource.cc
+
 process.rn = cms.ESSource("PoolDBESSource",
     process.CondDBCommon,
     timetype = cms.string('runnumber'),
