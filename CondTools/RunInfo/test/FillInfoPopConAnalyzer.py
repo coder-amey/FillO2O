@@ -32,9 +32,9 @@ process.Test1 = cms.EDAnalyzer("FillInfoPopConAnalyzer",
                                SinceAppendMode = cms.bool(True),
                                record = cms.string('FillInfoRcd'),
                                name = cms.untracked.string('FillInfo'), #payload name
-                               Source = cms.PSet(fill = cms.untracked.uint32(6231),
-                                   firstFill = cms.untracked.uint32(6231),
-                                   lastFill = cms.untracked.uint32(6231),
+                               Source = cms.PSet(fill = cms.untracked.uint32(6360),
+                                   firstFill = cms.untracked.uint32(6358),
+                                   lastFill = cms.untracked.uint32(6362),
                                    connectionString = cms.untracked.string("oracle://cms_orcon_adg/CMS_RUNTIME_LOGGER"),
                                    DIPSchema = cms.untracked.string("CMS_BEAM_COND"),
                                                  #authenticationPath =  cms.untracked.string("/afs/cern.ch/cms/DB/conddb")

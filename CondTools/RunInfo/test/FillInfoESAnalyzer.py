@@ -3,7 +3,7 @@ import FWCore.ParameterSet.Config as cms
 process = cms.Process("Test")
 process.load("CondCore.DBCommon.CondDBCommon_cfi")
 
-process.CondDBCommon.connect = 'sqlite_file:test_output.db'
+process.CondDBCommon.connect = 'sqlite_file:test_output_ES.db'
 process.CondDBCommon.DBParameters.authenticationPath = '.'
 
 process.maxEvents = cms.untracked.PSet(
