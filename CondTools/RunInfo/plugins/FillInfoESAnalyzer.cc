@@ -31,7 +31,8 @@ namespace edmtest
     std::cout<<"###FillInfoESAnalyzer::analyze"<<std::endl;
     std::cout <<" I AM IN RUN NUMBER "<<e.id().run() <<std::endl;
     std::cout <<" ---EVENT NUMBER "<<e.id().event() <<std::endl;
-    edm::eventsetup::EventSetupRecordKey recordKey(edm::eventsetup::EventSetupRecordKey::TypeTag::findType("FillInfoRcd"));
+    edm::eventsetup::EventSetupRecordKey recordKey(edm::eventsetup::
+            EventSetupRecordKey::TypeTag::findType("FillInfoRcd"));
     if( recordKey.type() == edm::eventsetup::EventSetupRecordKey::TypeTag()) {
       //record not found
       std::cout <<"Record \"FillInfoRcd"<<"\" does not exist "<<std::endl;

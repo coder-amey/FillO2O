@@ -10,12 +10,11 @@ process.MessageLogger = cms.Service("MessageLogger",
                                     cout = cms.untracked.PSet(threshold = cms.untracked.string('INFO')),
                                     destinations = cms.untracked.vstring('cout')
                                     )
-
 process.source = cms.Source("EmptyIOVSource",
-                            lastValue = cms.uint64(1), # event range = firstValue to lastValue
+                            lastValue = cms.uint64(305081), # event range = firstValue to lastValue
                             timetype = cms.string('runnumber'),
-                            firstValue = cms.uint64(1),
-                            interval = cms.uint64(1)
+                            firstValue = cms.uint64(305081),
+                            interval = cms.uint64(1000)
                             )
 
 process.PoolDBOutputService = cms.Service("PoolDBOutputService",
@@ -32,16 +31,16 @@ process.Test1 = cms.EDAnalyzer("FillInfoPopConAnalyzer",
                                SinceAppendMode = cms.bool(True),
                                record = cms.string('FillInfoRcd'),
                                name = cms.untracked.string('FillInfo'), #payload name
-                               Source = cms.PSet(fill = cms.untracked.uint32(6360),
-                                   firstFill = cms.untracked.uint32(6358),
-                                   lastFill = cms.untracked.uint32(6362),
+                               Source = cms.PSet(fill = cms.untracked.uint32(6300),
+                                   firstFill = cms.untracked.uint32(6300),
+                                   lastFill = cms.untracked.uint32(6300),
                                    connectionString = cms.untracked.string("oracle://cms_orcon_adg/CMS_RUNTIME_LOGGER"),
                                    DIPSchema = cms.untracked.string("CMS_BEAM_COND"),
                                                  #authenticationPath =  cms.untracked.string("/afs/cern.ch/cms/DB/conddb")
                                    authenticationPath =  cms.untracked.string("/afs/cern.ch/user/r/rverma/"),
                                    debug=cms.untracked.bool(True)
                                                  ),
-                               loggingOn = cms.untracked.bool(True),
+                               loggingOn = cms.untracked.bool(False),
                                IsDestDbCheckedInQueryLog = cms.untracked.bool(False)
                                )
 

@@ -3,7 +3,7 @@ import FWCore.ParameterSet.Config as cms
 process = cms.Process("Test")
 process.load("CondCore.DBCommon.CondDBCommon_cfi")
 
-process.CondDBCommon.connect = 'sqlite_file:test_output_ES.db'
+process.CondDBCommon.connect = 'sqlite_file:test_output.db'
 process.CondDBCommon.DBParameters.authenticationPath = '.'
 
 process.maxEvents = cms.untracked.PSet(
@@ -12,8 +12,8 @@ process.maxEvents = cms.untracked.PSet(
 
 process.source = cms.Source("EmptyIOVSource",
     timetype = cms.string('timestamp'),
-    firstValue = cms.uint64(5412240172618088448),
-    lastValue = cms.uint64(5412267527264796672),
+    firstValue = cms.uint64(6425141560802677121),
+    lastValue = cms.uint64(6425141560802677121),
     interval = cms.uint64( 3600 << 32 )
 )
 
@@ -28,11 +28,11 @@ process.rn = cms.ESSource("PoolDBESSource",
     ))
 )
 
-
 process.get = cms.EDAnalyzer("EventSetupRecordDataGetter",
     toGet = cms.VPSet(cms.PSet(
         record = cms.string('FillInfoRcd'),
-        data = cms.vstring('fillinfo_test')
+        data = cms.vstring('FillInfo')
+        #data = cms.vstring('fillinfo_test')
     )),
     verbose = cms.untracked.bool(True)
 )
@@ -42,4 +42,6 @@ process.prod = cms.EDAnalyzer("FillInfoESAnalyzer")
 process.asciiprint = cms.OutputModule("AsciiOutputModule")
 
 process.p = cms.Path(process.prod)
+#process.p = cms.Path(process.get)
+#process.p = cms.Path(process.get*process.prod)
 process.ep = cms.EndPath(process.asciiprint)
